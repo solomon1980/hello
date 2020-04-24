@@ -1,0 +1,249 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/834fc6b9-7a95-4b31-b49c-31499597e275/ # 
+title: Retail API
+version: 1.0
+
+/products:
+  get:
+    description: fetches list of all products.
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [{"id": 111,
+    "name": "orange",
+    "barcode": "2130",
+    "rate":  2.15,
+    "productCategory": "organic"},
+   {"id": 112,
+    "name": "towel",
+    "barcode": "2170",
+    "rate":  5.5,
+    "productCategory": "nonorganic"},
+   {"id": 113,
+    "name": "sugar",
+    "barcode": "1130",
+    "rate":  3.15,
+    "productCategory": "organic"}
+]
+              
+              
+  /id:   
+    get:
+       queryParameters:
+        id:
+          type: integer
+          required: true
+       responses:
+        200:
+          body:
+            application/json:
+              example:
+                { "message": "ok"}
+                                
+    put:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description:  Updatesproductdatabasedon requestJSON
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"updated suceessuflly"}
+    delete:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description:  Delete anexisting product if it is not associatedwitha bill
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"deleted suceessfully"}
+                
+  post:
+    description: Createsanew productbasedon requestJSON
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {"created suceessfully"}
+              
+/Bills:
+  get:
+    description: fetches all bill data
+    responses:
+      500:
+        body:
+          application/json:
+            example:
+              [
+                { "id": 127,
+    "noOfItems": 3,
+    "totalCost": "expensive",
+    "totalTax":  "paid",
+    "totalValue": "high"},
+   {"id": 129,
+    "noOfItems": 2,
+    "totalCost": "cheep",
+    "totalTax":  "paid",
+    "totalValue": "100"},
+   {"id": 128,
+    "noOfItems": 5,
+    "totalCost": "$41",
+    "totalTax":  "$4",
+    "totalValue": "$44"
+  }]
+                               
+  /id:
+    description: fetches bill of aparticular id
+    get:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                { "message": "suceessfully"}
+    put:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description: Updatesbill data.Client canadd or remove productstobill sending aJSONrequest
+      responses:
+        400:
+          body:
+            application/json:
+              example:
+                {"updated suceessfully"}
+    delete:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description:  Deletebill fromthesystem
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"delete successfully"}
+                
+                           
+  post:
+    description: createsabill Id.Client hastouse thisbill Idwhile adding andremoving products
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {"create successfully"}
+            
+/product catagory:
+  get:
+    description: fetcheslist of all productcatagorydata
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              [
+    {
+    "id": 123,
+    "name": "meat"},
+   {"id": 126,
+    "name": "banana"},
+   {"id": 129,
+    "name": "milk"
+   
+   }
+]
+            
+              
+  /id:
+    description: fetcha specificproductcatagory
+    get:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"message successful"}
+                
+    put:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description: Updatesproductcatagorydatabased onrequestJSON
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"message update"}
+                
+    delete:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description: Delete anexistingproductcatagory
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {"message delate"}
+                
+
+  post:
+    description: Createsanew productcatagorybasedon requestJSON
+    responses:
+      500:
+        body:
+          application/json:
+            example:
+              {"message create"}
+              
+                            
+    
+
+
+         
+          
+                 
+                  
+      
+
+
+              
+
+  
+    
+      
+  
+          
+
+    
+
+
+                                  
+                    
+                  
+ 
